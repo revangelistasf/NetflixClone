@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		4690E51225F3EC010070ABCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E51125F3EC010070ABCB /* AppDelegate.swift */; };
 		4690E51425F3EC010070ABCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E51325F3EC010070ABCB /* SceneDelegate.swift */; };
-		4690E51625F3EC010070ABCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E51525F3EC010070ABCB /* ViewController.swift */; };
-		4690E51925F3EC010070ABCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4690E51725F3EC010070ABCB /* Main.storyboard */; };
+		4690E51625F3EC010070ABCB /* MovieCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E51525F3EC010070ABCB /* MovieCatalogViewController.swift */; };
 		4690E51B25F3EC010070ABCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4690E51A25F3EC010070ABCB /* Assets.xcassets */; };
 		4690E51E25F3EC010070ABCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4690E51C25F3EC010070ABCB /* LaunchScreen.storyboard */; };
+		4690E52F25F404650070ABCB /* MovieCategorieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E52E25F404650070ABCB /* MovieCategorieTableViewCell.swift */; };
+		4690E53225F4D2B10070ABCB /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E53125F4D2B10070ABCB /* MovieCollectionViewCell.swift */; };
+		4690E53F25F56CAA0070ABCB /* MovieCatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E53E25F56CAA0070ABCB /* MovieCatalogViewModel.swift */; };
+		4690E54425F56ECE0070ABCB /* tmdbAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E54325F56ECE0070ABCB /* tmdbAPI.swift */; };
+		4690E54825F570E60070ABCB /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E54725F570E60070ABCB /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4690E50E25F3EC010070ABCB /* NetflixClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetflixClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4690E51125F3EC010070ABCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4690E51325F3EC010070ABCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4690E51525F3EC010070ABCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4690E51825F3EC010070ABCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4690E51525F3EC010070ABCB /* MovieCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCatalogViewController.swift; sourceTree = "<group>"; };
 		4690E51A25F3EC010070ABCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4690E51D25F3EC010070ABCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4690E51F25F3EC010070ABCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4690E52E25F404650070ABCB /* MovieCategorieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCategorieTableViewCell.swift; sourceTree = "<group>"; };
+		4690E53125F4D2B10070ABCB /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		4690E53E25F56CAA0070ABCB /* MovieCatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCatalogViewModel.swift; sourceTree = "<group>"; };
+		4690E54325F56ECE0070ABCB /* tmdbAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tmdbAPI.swift; sourceTree = "<group>"; };
+		4690E54725F570E60070ABCB /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,75 @@
 		4690E51025F3EC010070ABCB /* NetflixClone */ = {
 			isa = PBXGroup;
 			children = (
+				4690E52C25F400FB0070ABCB /* Model */,
+				4690E52925F3FEC50070ABCB /* Modules */,
+				4690E54225F56E9E0070ABCB /* Utilities */,
 				4690E51125F3EC010070ABCB /* AppDelegate.swift */,
 				4690E51325F3EC010070ABCB /* SceneDelegate.swift */,
-				4690E51525F3EC010070ABCB /* ViewController.swift */,
-				4690E51725F3EC010070ABCB /* Main.storyboard */,
 				4690E51A25F3EC010070ABCB /* Assets.xcassets */,
 				4690E51C25F3EC010070ABCB /* LaunchScreen.storyboard */,
 				4690E51F25F3EC010070ABCB /* Info.plist */,
 			);
 			path = NetflixClone;
+			sourceTree = "<group>";
+		};
+		4690E52925F3FEC50070ABCB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4690E52A25F3FED90070ABCB /* MovieCatalog */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4690E52A25F3FED90070ABCB /* MovieCatalog */ = {
+			isa = PBXGroup;
+			children = (
+				4690E53C25F56C7B0070ABCB /* Controller */,
+				4690E52D25F404190070ABCB /* View */,
+				4690E53D25F56C8A0070ABCB /* ViewModel */,
+			);
+			path = MovieCatalog;
+			sourceTree = "<group>";
+		};
+		4690E52C25F400FB0070ABCB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4690E52D25F404190070ABCB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4690E52E25F404650070ABCB /* MovieCategorieTableViewCell.swift */,
+				4690E53125F4D2B10070ABCB /* MovieCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4690E53C25F56C7B0070ABCB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4690E51525F3EC010070ABCB /* MovieCatalogViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4690E53D25F56C8A0070ABCB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4690E53E25F56CAA0070ABCB /* MovieCatalogViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4690E54225F56E9E0070ABCB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4690E54325F56ECE0070ABCB /* tmdbAPI.swift */,
+				4690E54725F570E60070ABCB /* AppConstants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +194,6 @@
 			files = (
 				4690E51E25F3EC010070ABCB /* LaunchScreen.storyboard in Resources */,
 				4690E51B25F3EC010070ABCB /* Assets.xcassets in Resources */,
-				4690E51925F3EC010070ABCB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +204,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4690E51625F3EC010070ABCB /* ViewController.swift in Sources */,
+				4690E51625F3EC010070ABCB /* MovieCatalogViewController.swift in Sources */,
 				4690E51225F3EC010070ABCB /* AppDelegate.swift in Sources */,
+				4690E53225F4D2B10070ABCB /* MovieCollectionViewCell.swift in Sources */,
+				4690E54825F570E60070ABCB /* AppConstants.swift in Sources */,
+				4690E54425F56ECE0070ABCB /* tmdbAPI.swift in Sources */,
+				4690E53F25F56CAA0070ABCB /* MovieCatalogViewModel.swift in Sources */,
+				4690E52F25F404650070ABCB /* MovieCategorieTableViewCell.swift in Sources */,
 				4690E51425F3EC010070ABCB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,14 +218,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4690E51725F3EC010070ABCB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4690E51825F3EC010070ABCB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4690E51C25F3EC010070ABCB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5G8R9XCSYX;
 				INFOPLIST_FILE = NetflixClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +373,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5G8R9XCSYX;
 				INFOPLIST_FILE = NetflixClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
