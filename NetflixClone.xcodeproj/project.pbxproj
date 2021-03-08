@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,8 @@
 		4690E55025F597050070ABCB /* MovieCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E54F25F597050070ABCB /* MovieCatalogService.swift */; };
 		4690E55525F59D6B0070ABCB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E55425F59D6B0070ABCB /* NetworkError.swift */; };
 		469DC36925F5C4EE00090B2E /* UIImageView+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469DC36825F5C4EE00090B2E /* UIImageView+Nuke.swift */; };
+		46E9EEC925F663B10075F226 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */; };
+		46E9EECC25F663BE0075F226 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */; };
 		B1462C25ADD8A48CF8A1765C /* Pods_NetflixClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72F253B493D4D4AEF5D4ADC /* Pods_NetflixClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		4690E54F25F597050070ABCB /* MovieCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCatalogService.swift; sourceTree = "<group>"; };
 		4690E55425F59D6B0070ABCB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		469DC36825F5C4EE00090B2E /* UIImageView+Nuke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Nuke.swift"; sourceTree = "<group>"; };
+		46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
+		46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		A72F253B493D4D4AEF5D4ADC /* Pods_NetflixClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E139BE56197418504061613D /* Pods-NetflixClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetflixClone.debug.xcconfig"; path = "Target Support Files/Pods-NetflixClone/Pods-NetflixClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +107,7 @@
 		4690E52925F3FEC50070ABCB /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				46E9EEC725F663820075F226 /* MovieDetails */,
 				4690E52A25F3FED90070ABCB /* MovieCatalog */,
 			);
 			path = Modules;
@@ -178,13 +183,21 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		46E9EEC725F663820075F226 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+				46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */,
+				46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */,
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
 		723E8E7615A9B04E6C9BB746 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				E139BE56197418504061613D /* Pods-NetflixClone.debug.xcconfig */,
 				216DCB065DCB2CEEBE43269B /* Pods-NetflixClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -301,8 +314,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E9EECC25F663BE0075F226 /* MovieDetailsViewModel.swift in Sources */,
 				4690E51625F3EC010070ABCB /* MovieCatalogViewController.swift in Sources */,
 				4690E51225F3EC010070ABCB /* AppDelegate.swift in Sources */,
+				46E9EEC925F663B10075F226 /* MovieDetailsViewController.swift in Sources */,
 				4690E54C25F5799C0070ABCB /* Movie.swift in Sources */,
 				4690E53225F4D2B10070ABCB /* MovieCollectionViewCell.swift in Sources */,
 				4690E55025F597050070ABCB /* MovieCatalogService.swift in Sources */,

@@ -28,7 +28,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
-        movieImageView.layer.borderWidth = 0
+        contentView.layer.shadowRadius = 0
     }
     
     private func configureView() {
@@ -43,8 +43,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     func goodQualityMovieLayout() {
-        movieImageView.layer.borderWidth = 1.5
-        movieImageView.layer.borderColor = UIColor.systemRed.cgColor
+        contentView.layer.shadowColor = UIColor.systemRed.cgColor
+        contentView.layer.shadowOpacity = 0.75
+        contentView.layer.shadowOffset = .zero
+        contentView.layer.shadowRadius = 7
     }    
     
 }

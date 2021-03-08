@@ -21,7 +21,7 @@ class MovieCatalogViewController: UIViewController {
         let tableView = UITableView()
         view.addSubview(tableView)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = .black
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.register(
@@ -38,9 +38,10 @@ class MovieCatalogViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel?.delegate = self
-        viewModel?.fetchMovieCatalog()
         configureView()
         configureTableView()
+        viewModel?.fetchPageFromMovieCatalog()
+
     }
     
     private func configureView() {
@@ -58,6 +59,7 @@ class MovieCatalogViewController: UIViewController {
     private func configureTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.prefetchDataSource = self
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -74,7 +76,12 @@ extension MovieCatalogViewController: MovieCatalogViewModelDelegate {
     }
 }
 
-extension MovieCatalogViewController: UITableViewDelegate, UITableViewDataSource {
+extension MovieCatalogViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        viewModel?.fetchNextPageIfNeeded(indexPaths)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.actualPage ?? 0
     }
@@ -98,17 +105,21 @@ extension MovieCatalogViewController: UITableViewDelegate, UITableViewDataSource
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        let height = scrollView.frame.size.height
-        
+        let height = scrollView.frame.size.height + 30
+
         if offsetY > contentHeight - height {
-            self.viewModel?.fetchMovieCatalog()
+            self.viewModel?.fetchPageFromMovieCatalog()
         }
     }
 }
 
 extension MovieCatalogViewController: MovieCatalogViewControllerDelegate {
     func didOpenDetailsFrom(selectedMovie: Movie) {
-        print("ae")
+        let movieDetailsViewModel = MovieDetailsViewModel()
+        movieDetailsViewModel.selectedMovie = selectedMovie
+        let destinationController = MovieDetailsViewController(viewModel: movieDetailsViewModel)
+        present(destinationController, animated: true, completion: nil)
+//        navigationController?.pushViewController(destinationController, animated: false)
     }
     
     func didOpenAlert() {

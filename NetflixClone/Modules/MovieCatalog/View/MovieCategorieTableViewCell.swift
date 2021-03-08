@@ -15,6 +15,8 @@ class MovieCategorieTableViewCell: UITableViewCell, UICollectionViewDelegateFlow
             self.collectionView.reloadData()
         }
     }
+    
+    var selectedImageView: UIImageView?
         
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
