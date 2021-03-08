@@ -8,6 +8,12 @@
 import UIKit
 
 class MovieCategorieTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
+    
+    var movies: [Movie]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
         
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -42,8 +48,6 @@ class MovieCategorieTableViewCell: UITableViewCell, UICollectionViewDelegateFlow
     }
     
     private func setupCollectionView() {
-        
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
@@ -56,13 +60,18 @@ class MovieCategorieTableViewCell: UITableViewCell, UICollectionViewDelegateFlow
 
 extension MovieCategorieTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: MovieCollectionViewCell.reusableID, for: indexPath) as! MovieCollectionViewCell
-        cell.backgroundColor = .systemYellow
+        
+        let selectedMovie = movies?[indexPath.row]
+        let api = TMDBAPI.poster(endpoint: selectedMovie?.posterPath ?? "")
+        cell.movieImageView.loadImageFromUrl(api.url) {
+            collectionView.reloadItems(at: [indexPath])
+        }
         
         return cell
     }

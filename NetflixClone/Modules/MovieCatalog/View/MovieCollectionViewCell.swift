@@ -9,6 +9,13 @@ import UIKit
 
 class MovieCollectionViewCell: UICollectionViewCell {
     
+    lazy var movieImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return imageView
+    }()
+    
     static let reusableID = "MovieCollectionViewCell"
     
     override init(frame: CGRect) {
@@ -21,7 +28,14 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureView() {
-        backgroundColor = .systemBlue
+        contentView.addSubview(movieImageView)
+        NSLayoutConstraint.activate([
+            movieImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            movieImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            movieImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            movieImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
+    
     
 }

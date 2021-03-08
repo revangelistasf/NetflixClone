@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: scene)
-        let moviesListViewController = MovieCatalogViewController ()
+        let moviesListViewController = MovieCatalogViewController(viewModel: MovieCatalogViewModel())
         self.window = window
         self.window?.rootViewController = moviesListViewController
         self.window?.windowScene = scene

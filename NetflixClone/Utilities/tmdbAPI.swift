@@ -9,20 +9,20 @@ import Foundation
 
 enum TMDBAPI {
     
-    case movieSection(section: Int)
+    case movieSection(page: Int)
     case poster(endpoint: String)
     
     private var baseURL: String {
         switch self {
         case .movieSection:
-            return "https://api.themoviedb.org/3/discover"
+            return "https://api.themoviedb.org/3/discover/movie"
         case .poster(let endpoint):
             return "https://image.tmdb.org/t/p/w500\(endpoint)"
         }
     }
     
-    var url: URL? {
-        return URL(string: baseURL)
+    var url: URL {
+        return URL(string: baseURL)!
     }
     
     var queryItems: [URLQueryItem]? {
