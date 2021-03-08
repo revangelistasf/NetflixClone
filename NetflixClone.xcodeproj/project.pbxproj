@@ -186,10 +186,26 @@
 		46E9EEC725F663820075F226 /* MovieDetails */ = {
 			isa = PBXGroup;
 			children = (
-				46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */,
-				46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */,
+				46E9EECF25F677F40075F226 /* ViewModel */,
+				46E9EECE25F677D80075F226 /* Controller */,
 			);
 			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		46E9EECE25F677D80075F226 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		46E9EECF25F677F40075F226 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		723E8E7615A9B04E6C9BB746 /* Pods */ = {
