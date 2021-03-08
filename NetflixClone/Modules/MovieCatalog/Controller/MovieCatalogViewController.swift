@@ -66,6 +66,9 @@ class MovieCatalogViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: 40))
+        self.tableView.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
     }
     
 }
@@ -82,8 +85,31 @@ extension MovieCatalogViewController: UITableViewDelegate, UITableViewDataSource
         viewModel?.fetchNextPageIfNeeded(indexPaths)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let viewModel = viewModel else { return 0 }
+        return viewModel.actualPage - 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.actualPage ?? 0
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        let label = UILabel()
+        label.textColor = .white
+        label.font = .preferredFont(forTextStyle: .title3)
+        label.text = viewModel?.getSectionName(section: section)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(label)
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        return view
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -119,7 +145,6 @@ extension MovieCatalogViewController: MovieCatalogViewControllerDelegate {
         movieDetailsViewModel.selectedMovie = selectedMovie
         let destinationController = MovieDetailsViewController(viewModel: movieDetailsViewModel)
         present(destinationController, animated: true, completion: nil)
-//        navigationController?.pushViewController(destinationController, animated: false)
     }
     
     func didOpenAlert() {

@@ -16,6 +16,7 @@ protocol MovieCatalogViewModelProtocol {
     var service: MovieCatalogServiceProtocol { get set }
     var actualPage: Int { get set }
     func fetchPageFromMovieCatalog()
+    func getSectionName(section: Int) -> String
     func fetchNextPageIfNeeded(_ indexPaths: [IndexPath]) -> Bool
     func movieSection(from indexPath: IndexPath) -> [Movie]?
 }
@@ -25,6 +26,7 @@ class MovieCatalogViewModel: MovieCatalogViewModelProtocol {
     var service: MovieCatalogServiceProtocol
     var actualPage: Int = 1
     let dispatchGroup = DispatchGroup()
+    private var sectionName: [String] = []
     private var movieCatalog: [Int: [Movie]] = [:]
     
     init(service: MovieCatalogService = MovieCatalogService()) {
@@ -32,7 +34,7 @@ class MovieCatalogViewModel: MovieCatalogViewModelProtocol {
     }
     
     func movieSection(from indexPath: IndexPath) -> [Movie]? {
-        let section = indexPath.row + 1
+        let section = indexPath.section + 1
         return movieCatalog[section]
     }
     
@@ -52,6 +54,9 @@ class MovieCatalogViewModel: MovieCatalogViewModelProtocol {
         return false
     }
     
+    func getSectionName(section: Int) -> String {
+        return sectionName[section]
+    }
     
     func numberOfSections() -> Int {
         return actualPage
@@ -75,6 +80,7 @@ class MovieCatalogViewModel: MovieCatalogViewModelProtocol {
         case .success(let response):
             let movieList = response.results
             self.movieCatalog[response.page!] = movieList
+            sectionName.append(SectionNameGenerator.names.randomElement()!)
             self.actualPage += 1
         case .failure(let networkError):
             print(networkError)

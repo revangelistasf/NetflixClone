@@ -21,6 +21,7 @@
 		4690E55025F597050070ABCB /* MovieCatalogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E54F25F597050070ABCB /* MovieCatalogService.swift */; };
 		4690E55525F59D6B0070ABCB /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4690E55425F59D6B0070ABCB /* NetworkError.swift */; };
 		469DC36925F5C4EE00090B2E /* UIImageView+Nuke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469DC36825F5C4EE00090B2E /* UIImageView+Nuke.swift */; };
+		46D543B325F67D610003C1BC /* SectionNameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D543B225F67D610003C1BC /* SectionNameGenerator.swift */; };
 		46E9EEC925F663B10075F226 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */; };
 		46E9EECC25F663BE0075F226 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */; };
 		B1462C25ADD8A48CF8A1765C /* Pods_NetflixClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A72F253B493D4D4AEF5D4ADC /* Pods_NetflixClone.framework */; };
@@ -44,6 +45,7 @@
 		4690E54F25F597050070ABCB /* MovieCatalogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCatalogService.swift; sourceTree = "<group>"; };
 		4690E55425F59D6B0070ABCB /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		469DC36825F5C4EE00090B2E /* UIImageView+Nuke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Nuke.swift"; sourceTree = "<group>"; };
+		46D543B225F67D610003C1BC /* SectionNameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionNameGenerator.swift; sourceTree = "<group>"; };
 		46E9EEC825F663B10075F226 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		46E9EECB25F663BE0075F226 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		A72F253B493D4D4AEF5D4ADC /* Pods_NetflixClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetflixClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 				4690E54725F570E60070ABCB /* AppConstants.swift */,
 				4690E54325F56ECE0070ABCB /* TMDBAPI.swift */,
 				4690E55425F59D6B0070ABCB /* NetworkError.swift */,
+				46D543B225F67D610003C1BC /* SectionNameGenerator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				4690E51225F3EC010070ABCB /* AppDelegate.swift in Sources */,
 				46E9EEC925F663B10075F226 /* MovieDetailsViewController.swift in Sources */,
 				4690E54C25F5799C0070ABCB /* Movie.swift in Sources */,
+				46D543B325F67D610003C1BC /* SectionNameGenerator.swift in Sources */,
 				4690E53225F4D2B10070ABCB /* MovieCollectionViewCell.swift in Sources */,
 				4690E55025F597050070ABCB /* MovieCatalogService.swift in Sources */,
 				4690E54825F570E60070ABCB /* AppConstants.swift in Sources */,
