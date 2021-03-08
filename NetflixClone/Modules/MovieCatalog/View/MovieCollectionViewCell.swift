@@ -27,15 +27,24 @@ class MovieCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        movieImageView.layer.borderWidth = 0
+    }
+    
     private func configureView() {
+        let padding: CGFloat = 4
         contentView.addSubview(movieImageView)
         NSLayoutConstraint.activate([
-            movieImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            movieImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            movieImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            movieImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            movieImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            movieImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            movieImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
+            movieImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -padding)
         ])
     }
     
+    func goodQualityMovieLayout() {
+        movieImageView.layer.borderWidth = 1.5
+        movieImageView.layer.borderColor = UIColor.systemRed.cgColor
+    }    
     
 }

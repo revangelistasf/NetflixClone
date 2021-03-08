@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol MovieCatalogViewControllerDelegate: class {
+    func didOpenDetailsFrom(selectedMovie: Movie)
+    func didOpenAlert()
+}
+
 class MovieCatalogViewController: UIViewController {
     
     var viewModel: MovieCatalogViewModelProtocol?
@@ -16,6 +21,7 @@ class MovieCatalogViewController: UIViewController {
         let tableView = UITableView()
         view.addSubview(tableView)
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.register(
@@ -33,7 +39,20 @@ class MovieCatalogViewController: UIViewController {
         super.viewDidLoad()
         viewModel?.delegate = self
         viewModel?.fetchMovieCatalog()
+        configureView()
         configureTableView()
+    }
+    
+    private func configureView() {
+        let appearance = UINavigationBarAppearance()
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.systemRed]
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.systemRed]
+        appearance.backgroundColor = .black
+        navigationItem.standardAppearance = appearance
+        navigationItem.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Movieflix"
+        
     }
     
     private func configureTableView() {
@@ -65,6 +84,7 @@ extension MovieCatalogViewController: UITableViewDelegate, UITableViewDataSource
             withIdentifier: MovieCategorieTableViewCell.reusableID) as! MovieCategorieTableViewCell
         
         if let movieSection = viewModel?.movieSection(from: indexPath) {
+            cell.delegate = self
             cell.movies = movieSection
         }
         
@@ -83,5 +103,21 @@ extension MovieCatalogViewController: UITableViewDelegate, UITableViewDataSource
         if offsetY > contentHeight - height {
             self.viewModel?.fetchMovieCatalog()
         }
+    }
+}
+
+extension MovieCatalogViewController: MovieCatalogViewControllerDelegate {
+    func didOpenDetailsFrom(selectedMovie: Movie) {
+        print("ae")
+    }
+    
+    func didOpenAlert() {
+        let alert = UIAlertController(title: "This is a Bad Movie",
+                                      message: "Don't waste your time watching this",
+                                      preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok :(", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }

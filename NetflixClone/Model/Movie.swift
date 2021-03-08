@@ -26,4 +26,8 @@ struct Movie: Decodable, Hashable {
     var title: String
     var voteAverage: Double
     var posterPath: String?
+    
+    func isAGoodMovie() -> Bool {
+        return voteAverage >= AppConstants.minRate
+    }
 }

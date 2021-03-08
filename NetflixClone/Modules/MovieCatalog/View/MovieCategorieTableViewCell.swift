@@ -9,6 +9,7 @@ import UIKit
 
 class MovieCategorieTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
     
+    weak var delegate: MovieCatalogViewControllerDelegate!
     var movies: [Movie]? {
         didSet {
             self.collectionView.reloadData()
@@ -44,15 +45,16 @@ class MovieCategorieTableViewCell: UITableViewCell, UICollectionViewDelegateFlow
     }
     
     private func configureUI() {
+        backgroundColor = .clear
         setupCollectionView()
     }
     
     private func setupCollectionView() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            collectionView.heightAnchor.constraint(equalToConstant: 170)
         ])
     }
     
@@ -67,17 +69,29 @@ extension MovieCategorieTableViewCell: UICollectionViewDataSource, UICollectionV
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: MovieCollectionViewCell.reusableID, for: indexPath) as! MovieCollectionViewCell
         
-        let selectedMovie = movies?[indexPath.row]
-        let api = TMDBAPI.poster(endpoint: selectedMovie?.posterPath ?? "")
+        guard let movies = self.movies else { return UICollectionViewCell() }
+        let selectedMovie = movies[indexPath.row]
+        let api = TMDBAPI.poster(endpoint: selectedMovie.posterPath ?? "")
         cell.movieImageView.loadImageFromUrl(api.url) {
             collectionView.reloadItems(at: [indexPath])
         }
+        
+        if selectedMovie.isAGoodMovie() {
+            cell.goodQualityMovieLayout()
+        } 
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        guard let movies = self.movies else { return }
+        let selectedMovie = movies[indexPath.row]
+        
+        if selectedMovie.isAGoodMovie() {
+            self.delegate.didOpenDetailsFrom(selectedMovie: selectedMovie)
+        } else {
+            self.delegate.didOpenAlert()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
